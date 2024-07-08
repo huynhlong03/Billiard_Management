@@ -1,0 +1,68 @@
+﻿@model Billiard_Management.Models.ViewModel.HoaDonVM
+
+@{
+    ViewData["Title"] = "ThemHoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var khachHangList = new List<SelectListItem>();
+    var httpContext = ViewContext.HttpContext;
+
+    if (httpContext.Request.Cookies["ConnectionString"] != null)
+    {
+        using (var connection = new Oracle.ManagedDataAccess.Client.OracleConnection(httpContext.Request.Cookies["ConnectionString"]))
+        {
+            connection.Open();
+
+            using (var command = new Oracle.ManagedDataAccess.Client.OracleCommand("SELECT Makh, Ten FROM Ql_Billiard.KhachHang", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    khachHangList.Add(new SelectListItem { Value = reader["Makh"].ToString(), Text = reader["Ten"].ToString() });
+                }
+            }
+        }
+    }
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ThemHoaDon" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Maban" />
+ 
+            <div class="form-group">
+                <label asp-for="Khachhang" class="control-label">Khách</label>
+               
+                <select asp-for="Khachhang" name="Khachhang" class="form-control">
+                    @foreach (var item in khachHangList)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Ghichu" class="control-label"></label>
+                <input asp-for="Ghichu" class="form-control" />
+                <span asp-validation-for="Ghichu" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" >Tạo hóa đơn</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="QuanLiBan">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

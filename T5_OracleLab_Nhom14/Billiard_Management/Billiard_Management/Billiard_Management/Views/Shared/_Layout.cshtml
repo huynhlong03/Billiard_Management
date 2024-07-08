@@ -1,0 +1,162 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+
+	<!-- BOOTSTRAP STYLES-->
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+   
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="~/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Binary admin</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> 
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span class="navbar-text">Hi, @User.Identity.Name!</span>
+                    <form method="post" asp-controller="Home" asp-action="DangXuat" class="form-inline">
+                        <button type="submit" class="btn btn-danger square-btn-adjust">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-action="DangNhap" asp-controller="Home" class="btn btn-primary square-btn-adjust">Login</a>
+                }
+            </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				
+				
+					
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" ><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                     <li>
+                        <a asp-action="Index" asp-controller="QuanLiBan"><i class="fa fa-desktop fa-3x"></i> Bàn</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="QuanLiLoaiBan"><i class="fa fa-tablet fa-3x"></i> Loại bàn </a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="QuanLiThucDon"><i class="fa fa-qrcode fa-3x"></i> MENU</a>
+                    </li>
+						  @*  <li  >
+                        <a href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Đặt trước</a>
+                    </li>	 *@
+                      <li  >
+                        <a asp-action="Index" asp-controller="QuanLiThanhVien" ><i class="fa fa-table fa-3x"></i> Đăng kí thành viên</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="QuanLiHoaDon"><i class="fa fa-edit fa-3x"></i> Hóa đơn </a>
+                    </li>
+                    <li  >
+                        <a asp-action="Index" asp-controller="QuanLiTaiKhoan"><i class="fa fa-users fa-3x"></i> Tài khoản </a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="ThongKe"><i class="fa fa-bar-chart-o fa-3x"></i> Thống kê </a>
+                    </li>
+                    <li>
+                      
+                    </li>
+                   @*  <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+
+                                </ul>
+                               
+                            </li>
+                        </ul>
+                      </li>   *@
+                 @*  <li  >
+                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                    </li> *@	
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                @RenderBody()
+                <!-- /. ROW  -->
+                  <hr />
+               
+            
+		     </div>
+			</div>
+            </div>
+               
+               
+               
+                 
+                 <!-- /. ROW  -->           
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+    <script src="~/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/assets/js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="~/assets/js/custom.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+   
+</body>
+</html>
+
+

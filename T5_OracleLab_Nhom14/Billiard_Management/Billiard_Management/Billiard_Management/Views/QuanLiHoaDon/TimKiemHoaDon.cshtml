@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Billiard_Management.Models.Hoadon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-action="TimKiemHoaDon" asp-controller="QuanLiHoaDon" method="get">
+    <h3>Tìm hóa đơn</h3>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="searchGiaTu">Giá từ:</label>
+            <input type="number" class="form-control" id="searchGiaTu" name="searchGiaTu" placeholder="Nhập giá từ">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="searchGiaDen">Đến:</label>
+            <input type="number" class="form-control" id="searchGiaDen" name="searchGiaDen" placeholder="Nhập giá đến">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="searchNgayBatDau">Ngày bắt đầu:</label>
+            <input type="date" class="form-control" id="searchNgayBatDau" name="searchNgayBatDau">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="searchNgayKetThuc">Ngày kết thúc:</label>
+            <input type="date" class="form-control" id="searchNgayKetThuc" name="searchNgayKetThuc">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="searchTrangthai">Trạng thái:</label>
+            <select class="form-control" id="searchTrangthai" name="searchTrangthai">
+                <option value="">Chọn trạng thái</option>
+                <option value="Chưa Thanh Toán">Chưa Thanh Toán</option>
+                <option value="Đã Thanh Toán">Đã Thanh Toán</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </div>
+    </div>
+
+</form>
+
+@* <p>
+    <a asp-action="ThemHoaDon" asp-controller="QuanLiHoaDon" class="btn btn-success">+ Thêm hóa đơn</a>
+</p> *@
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Maban)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Giobatdau)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Khachhang)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tongtien)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ghichu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Trangthaithanhtoan)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Mahoadon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maban)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Giobatdau)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KhachhangNavigation.Ten)
+                    </td>
+                    <td>
+
+                        <strong style="color:red">@String.Format("{0:#,##0}", @item.Tongtien)</strong> VNĐ
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ghichu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Trangthaithanhtoan)
+                    </td>
+
+                    <td>
+                        <a asp-action="SuaHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@item.Mahoadon" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                        <a asp-action="XemHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@item.Mahoadon" class="btn btn-warning"><i class="fa fa-info-circle"></i></a>
+                        @*   <a asp-action="XoaHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@item.Mahoadon" class="btn btn-danger"><i class="fa fa-trash-o"></i></a> *@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        Không tìm thấy hóa đơn phù hợp.
+    </div>
+}

@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Billiard_Management.Models.Khachhang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-action="TimKiemThanhVien" asp-controller="QuanLiThanhVien" method="get" class="max-w-md mx-auto" style="padding-bottom: 30px;">
+    <div class="wrap">
+        <div class="search">
+            <input type="text" name="searchString" class="searchTerm" placeholder="">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+<p>
+    <a asp-action="ThemThanhVien" asp-controller="QuanLiThanhVien" class="btn btn-success">+ Thêm thành viên</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaithanhvienNavigation.Tenloaitv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.Makh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+               @item.LoaithanhvienNavigation.Tenloaitv
+            </td>
+            <td>
+                    <a asp-action="SuaThanhVien" asp-controller="QuanLiThanhVien" asp-route-id="@item.Makh" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                    <a asp-action="XoaThanhVien" asp-controller="QuanLiThanhVien" asp-route-id="@item.Makh" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="form-group">
+    <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+</div>
+<style>
+
+    .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    .searchTerm {
+        width: 100%;
+        border: 3px solid #00B4CC;
+        border-right: none;
+        padding: 5px;
+        height: 36px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9DBFAF;
+    }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap {
+        width: 30%;
+        position: absolute;
+             
+    }
+</style>

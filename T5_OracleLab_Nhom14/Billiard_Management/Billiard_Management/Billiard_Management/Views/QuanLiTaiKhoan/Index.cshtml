@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Billiard_Management.Models.Account>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <p>
+        <a class="btn btn-success" asp-action="ThemTaiKhoan" asp-controller="QuanLiTaiKhoan"> + Thêm tài khoản </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TaiKhoan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MatKhau)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HoTen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SDT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TinhTrang)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuanLy)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaiKhoan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatKhau)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HoTen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TinhTrang)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuanLy)
+                    </td>
+                    <td>
+                        <a asp-action="SuaTaiKhoan" asp-controller="QuanLiTaiKhoan" asp-route-id="@item.TaiKhoan" class="btn btn-info"><i class="fa fa-edit"></i></a>
+
+                        
+                        <a asp-action="XoaTaiKhoan" asp-controller="QuanLiTaiKhoan" asp-route-id="@item.TaiKhoan" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div class="form-group">
+        <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+

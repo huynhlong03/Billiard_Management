@@ -1,0 +1,11 @@
+B1: Vào ORACLE DBMS ở tài khoản có quyền SYS thực hiện lệnh:
+-- Tạo lược đồ CSDL và insert dữ liệu các bảng ở file QL_Billiard.sql
+-- Tạo các procedure, function, trigger, package ở file ThucTuc.sql
+-- Tạo phân quyền ở file PhanQuyen.sql
+-- Tạo bảo mật Vitual Private Database ở file VDP.sql
+
+B2: Sau khi thực hiện tạo các bảng cùng các dữ liệu thì ta sẽ cài đặt project với VisualStudio 
+
+B3: Ta tiến hành chạy chương trình 
+
+	

@@ -1,0 +1,67 @@
+﻿@model Billiard_Management.Models.ViewModel.ThanhVienVM
+
+@{
+    ViewData["Title"] = "ThemThanhVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var loaiThanhVienList = new List<SelectListItem>();
+    var httpContext = ViewContext.HttpContext;
+
+    if (httpContext.Request.Cookies["ConnectionString"] != null)
+    {
+        using (var connection = new Oracle.ManagedDataAccess.Client.OracleConnection(httpContext.Request.Cookies["ConnectionString"]))
+        {
+            connection.Open();
+
+            using (var command = new Oracle.ManagedDataAccess.Client.OracleCommand("SELECT Maloaitv, Tenloaitv FROM Ql_Billiard.LoaiThanhVien", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    loaiThanhVienList.Add(new SelectListItem { Value = reader["MaloaiTV"].ToString(), Text = reader["TenloaiTV"].ToString() });
+                }
+            }
+        }
+    }
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ThemThanhVien" method="post">
+            <div class="form-group">
+                <label asp-for="Ten">Tên</label>
+                <input type="text" class="form-control" id="ten" name="ten" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedLoaiThanhVienId" class="control-label">Loại thành viên</label>
+               
+                <select asp-for="SelectedLoaiThanhVienId" name="loaiThanhVien" id="loaiThanhVien" class="form-control">
+                    @foreach (var item in loaiThanhVienList)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

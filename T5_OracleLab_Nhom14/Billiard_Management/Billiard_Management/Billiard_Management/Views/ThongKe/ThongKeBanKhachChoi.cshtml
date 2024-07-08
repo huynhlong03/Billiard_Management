@@ -1,0 +1,79 @@
+﻿@model List<Billiard_Management.Models.ViewModel.ThongKeBanKhachChoiVM>
+@{
+    ViewData["Title"] = "ThongKeBanKhachChoi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var loaiBanColors = new Dictionary<string, string>
+    {
+        { "Bàn lỗ", "rgba(255, 99, 132, 0.2)" },
+        { "Bàn lip", "rgba(54, 162, 235, 0.2)" },
+        { "Bàn carom", "rgba(75, 192, 192, 0.2)" }
+    };
+
+    var loaiBanBorderColors = new Dictionary<string, string>
+    {
+        { "Bàn lỗ", "rgba(255, 99, 132, 1)" },
+        { "Bàn lip", "rgba(54, 162, 235, 1)" },
+        { "Bàn carom", "rgba(75, 192, 192, 1)" }
+    };
+
+    string GetColor(string loaiBan)
+    {
+        return loaiBanColors.ContainsKey(loaiBan) ? loaiBanColors[loaiBan] : "rgba(0, 0, 0, 0.2)";
+    }
+
+    string GetBorderColor(string loaiBan)
+    {
+        return loaiBanBorderColors.ContainsKey(loaiBan) ? loaiBanBorderColors[loaiBan] : "rgba(0, 0, 0, 1)";
+    }
+}
+
+<h1>ThongKeBanKhachChoi</h1>
+
+<canvas id="banKhachChoiChart" width="400" height="200"></canvas>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('banKhachChoiChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.Select(m => m.LoaiBan))),
+                datasets: [{
+                    label: 'Số lượt chơi',
+                    data: @Html.Raw(Json.Serialize(Model.Select(m => m.SoLuotChoi))),
+                    backgroundColor: @Html.Raw(Json.Serialize(Model.Select(m => GetColor(m.LoaiBan)))),
+                    borderColor: @Html.Raw(Json.Serialize(Model.Select(m => GetBorderColor(m.LoaiBan)))),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loại Bàn</th>
+            <th>Số Lượt Chơi</th>
+            <th>Doanh Thu (VNĐ)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LoaiBan</td>
+                <td>@item.SoLuotChoi</td>
+                <td>@string.Format("{0:n0} VNĐ", item.DoanhThu)</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,103 @@
+﻿@model Billiard_Management.Models.Ban
+
+@{
+    ViewData["Title"] = "Thêm Bàn";
+
+    var loaiBanList = new List<SelectListItem>();
+    var trangThaiList = new List<SelectListItem>();
+
+    var httpContext = ViewContext.HttpContext;
+
+    if (httpContext.Request.Cookies["ConnectionString"] != null)
+    {
+        using (var connection = new Oracle.ManagedDataAccess.Client.OracleConnection(httpContext.Request.Cookies["ConnectionString"]))
+        {
+            connection.Open();
+
+            using (var command = new Oracle.ManagedDataAccess.Client.OracleCommand("SELECT Maloai, Tenloai FROM Ql_Billiard.LoaiBan", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    loaiBanList.Add(new SelectListItem { Value = reader["Maloai"].ToString(), Text = reader["Tenloai"].ToString() });
+                }
+            }
+
+            using (var command = new Oracle.ManagedDataAccess.Client.OracleCommand("SELECT MaTrangThai, TenTrangThai FROM Ql_Billiard.TrangThai", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    trangThaiList.Add(new SelectListItem { Value = reader["MaTrangThai"].ToString(), Text = reader["TenTrangThai"].ToString() });
+                }
+            }
+        }
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ThemBan" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Maban" class="control-label"></label>
+                    <input asp-for="Maban" class="form-control" />
+                    <span asp-validation-for="Maban" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tenban" class="control-label"></label>
+                    <input asp-for="Tenban" class="form-control" />
+                    <span asp-validation-for="Tenban" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Loaiban" class="control-label"></label>
+                    <select asp-for="Loaiban" class="form-control">
+                        @foreach (var item in loaiBanList)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Loaiban" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Trangthai" class="control-label"></label>
+                    <select asp-for="Trangthai" class="form-control">
+                        @foreach (var item in trangThaiList)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Trangthai" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gia" class="control-label"></label>
+                    <input asp-for="Gia" class="form-control" />
+                    <span asp-validation-for="Gia" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hinhanh" class="control-label"></label>
+                    <input asp-for="Hinhanh" type="file" id="fileUpLoad" name="fileUpLoad" accept="image/*" required />
+                    <span asp-validation-for="Hinhanh" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

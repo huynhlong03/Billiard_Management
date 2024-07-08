@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Billiard_Management.Models.Thucdon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-action="TimKiemThucDon" asp-controller="QuanLiThucDon" method="get" class="max-w-md mx-auto" style="padding-bottom: 30px;">
+    <div class="wrap">
+        <div class="search">
+            <input type="text" name="searchString" class="searchTerm" placeholder="Tìm món...">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+<p>
+    <a asp-action="ThemThucDon" asp-controller="QuanLiThucDon" class="btn btn-success">+ Thêm món mới</a>
+</p>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+    </div>
+</div>
+<div class="container">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mathucdon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tenthucdon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Donvitinh)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Gia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hinh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ghichu)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mathucdon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tenthucdon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Donvitinh)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gia)
+                    </td>
+                    <td>
+                        <img src="~/assets/img/@item.Hinh" width="60px" height="60px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ghichu)
+                    </td>
+                    <td>
+                        <a asp-action="SuaThucDon" asp-controller="QuanLiThucDon" asp-route-id="@item.Mathucdon" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                        <a asp-action="XoaThucDon" asp-controller="QuanLiThucDon" asp-route-id="@item.Mathucdon" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+
+    .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    .searchTerm {
+        width: 100%;
+        border: 3px solid #00B4CC;
+        border-right: none;
+        padding: 5px;
+        height: 36px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9DBFAF;
+    }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap {
+        width: 30%;
+        position: absolute;
+    }
+</style>

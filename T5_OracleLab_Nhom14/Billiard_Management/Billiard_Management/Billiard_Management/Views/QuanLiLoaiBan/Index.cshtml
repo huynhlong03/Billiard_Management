@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Billiard_Management.Models.LoaiBan>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="ThemLoaiBan" class="btn btn-success">Thêm Loại Bàn</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Loại</th>
+            <th>Tên Loại</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loaiBan in Model)
+        {
+            <tr>
+                <td>@loaiBan.MaLoai</td>
+                <td>@loaiBan.TenLoai</td>
+                <td>
+                    <a asp-action="SuaLoaiBan" asp-route-maLoai="@loaiBan.MaLoai" class="btn btn-info">Sửa</a> 
+                    <a asp-action="XoaLoaiBan" asp-route-maLoai="@loaiBan.MaLoai" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="form-group">
+    <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+</div>
+

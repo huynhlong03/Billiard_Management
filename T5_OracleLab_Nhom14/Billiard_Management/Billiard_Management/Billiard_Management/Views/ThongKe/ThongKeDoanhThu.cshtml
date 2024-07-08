@@ -1,0 +1,87 @@
+﻿@model Billiard_Management.Models.ViewModel.ThongKeDoanhThuVM
+@{
+    ViewData["Title"] = "ThongKeDoanhThu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ThongKeDoanhThu</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <select id="selectThongKe" class="form-control">
+                <option value="ngay">Theo ngày</option>
+                <option value="thang">Theo tháng</option>
+                <option value="nam">Theo năm</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <canvas id="thongKeChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var dataNgay = {
+            labels: @Html.Raw(Json.Serialize(Model.DoanhThuTheoNgay.Select(d => d.Label))),
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: @Html.Raw(Json.Serialize(Model.DoanhThuTheoNgay.Select(d => d.Value))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        var dataThang = {
+            labels: @Html.Raw(Json.Serialize(Model.DoanhThuTheoThang.Select(d => d.Label))),
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: @Html.Raw(Json.Serialize(Model.DoanhThuTheoThang.Select(d => d.Value))),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        var dataNam = {
+            labels: @Html.Raw(Json.Serialize(Model.DoanhThuTheoNam.Select(d => d.Label))),
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: @Html.Raw(Json.Serialize(Model.DoanhThuTheoNam.Select(d => d.Value))),
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        var ctx = document.getElementById('thongKeChart').getContext('2d');
+        var thongKeChart = new Chart(ctx, {
+            type: 'line',
+            data: dataNgay,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        document.getElementById('selectThongKe').addEventListener('change', function () {
+            var selectedValue = this.value;
+            if (selectedValue === 'ngay') {
+                thongKeChart.data = dataNgay;
+            } else if (selectedValue === 'thang') {
+                thongKeChart.data = dataThang;
+            } else if (selectedValue === 'nam') {
+                thongKeChart.data = dataNam;
+            }
+            thongKeChart.update();
+        });
+    </script>
+}

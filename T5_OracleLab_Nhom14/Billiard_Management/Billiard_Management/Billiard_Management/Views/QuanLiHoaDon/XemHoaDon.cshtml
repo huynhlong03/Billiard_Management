@@ -1,0 +1,129 @@
+﻿@model Billiard_Management.Models.ViewModel.ChiTietHoaDonVM
+
+@{
+    ViewData["Title"] = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var thucDonList = new List<SelectListItem>();
+    var httpContext = ViewContext.HttpContext;
+
+
+
+    if (httpContext.Request.Cookies["ConnectionString"] != null)
+    {
+        using (var connection = new Oracle.ManagedDataAccess.Client.OracleConnection(httpContext.Request.Cookies["ConnectionString"]))
+        {
+            connection.Open();
+
+            using (var command = new Oracle.ManagedDataAccess.Client.OracleCommand("SELECT Mathucdon, Tenthucdon FROM Ql_Billiard.ThucDon", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    thucDonList.Add(new SelectListItem { Value = reader["Mathucdon"].ToString(), Text = reader["Tenthucdon"].ToString() });
+                }
+            }
+        }
+    }
+
+    decimal tongTienThucDon = 0;
+    if (Model.Chitiethoadon != null && Model.Chitiethoadon.Any())
+    {
+        tongTienThucDon = Model.Chitiethoadon.Sum(ct => ct.Soluongdat * (ct.MathucdonNavigation?.Gia ?? 0));
+    }
+}
+<h2>Hóa Đơn</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>Mã hóa đơn: @Model.HoaDon.Mahoadon</p>
+        <p>Bàn: @Model.Ban.Tenban</p>
+       
+        <p>Giờ bắt đầu: @Model.HoaDon.Giobatdau</p>
+        <p>Giờ kết thúc: @Model.HoaDon.Gioketthuc</p>
+    </div>
+    <div class="col-md-6">
+        <p>Tổng tiền thực đơn: @tongTienThucDon.ToString("#,##0")</p>
+        <p>Ghi chú: @Model.HoaDon.Ghichu</p>
+        <p>Số tiền thanh toán: @String.Format("{0:#,##0}", @Model.HoaDon.Thanhtoan) VNĐ</p>
+        <p>Tổng tiền: @String.Format("{0:#,##0}", @Model.HoaDon.Tongtien) VNĐ</p>
+        <p>Trạng thái thanh toán: <strong>@Model.HoaDon.Trangthaithanhtoan</strong></p>
+    </div>
+</div>
+
+<div>
+    <h2>Chi Tiết Hóa Đơn</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã Thực Đơn</th>
+                <th>Số Lượng Đặt</th>
+                <th>Đơn giá</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Chitiethoadon != null && Model.Chitiethoadon.Any())
+            {
+                @foreach (var item in Model.Chitiethoadon)
+                {
+                    <tr>
+                        <td>@item.MathucdonNavigation.Tenthucdon</td>
+                        <td>@item.Soluongdat</td>
+                        <td>@item.MathucdonNavigation.Gia</td>
+                        <td>
+                            <form asp-action="XoaChiTietHoaDon" asp-controller="QuanLiHoaDon" method="post">
+                                <input type="hidden" name="machitiethoadon" value="@item.Machitiethoadon" />
+                                <button type="submit" class="btn btn-danger" @(Model.HoaDon.Trangthaithanhtoan.Equals("Đã Thanh Toán") ? "disabled" : "")>
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Thêm Chi Tiết Hóa Đơn</h2>
+    <form asp-action="ThemChiTietHoaDon" method="post">
+        <div class="form-group">
+            <label for="Mathucdon" class="control-label">Danh sách món</label>
+            <select name="Mathucdon" class="form-control">
+                @foreach (var item in thucDonList)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Soluongdat">Số Lượng Đặt</label>
+            <input type="number" class="form-control" min="1" id="Soluongdat" name="Soluongdat" value="1" />
+        </div>
+        <input type="hidden" name="Mahoadon" value="@Model.newChiTietHoaDon.Mahoadon" />
+        <div class="form-group">
+            <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+        </div>
+        <button type="submit" class="btn btn-primary" @(Model.HoaDon.Trangthaithanhtoan == "Đã Thanh Toán" ? "disabled='disabled'" : "")>Thêm</button>
+
+    </form>
+</div>
+
+<div>
+    <h2>Thanh Toán</h2>
+    <form asp-action="ThanhToan" asp-controller="QuanLiHoaDon" method="post">
+        <input type="hidden" name="Mahoadon" value="@Model.HoaDon.Mahoadon" />
+        
+        <button type="submit" class="btn btn-success" @(Model.HoaDon.Trangthaithanhtoan == "Đã Thanh Toán" ? "disabled='disabled'" : "")>Thanh Toán</button>
+        
+    </form>
+</div>
+
+
+<div>
+    <a asp-action="Index" asp-controller="QuanLiBan">Back to List</a>
+</div>
+<div class="form-group">
+    <span style="color:red"><strong>@ViewBag.Notice</strong></span>
+</div>

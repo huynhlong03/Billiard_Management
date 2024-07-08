@@ -1,0 +1,159 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Billiard_Management
+build_property.RootNamespace = Billiard_Management
+build_property.ProjectDir = C:\Users\FPT\Documents\HocKy6\ThucHanhOracle\Billiard_Management\Billiard_Management\Billiard_Management\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\FPT\Documents\HocKy6\ThucHanhOracle\Billiard_Management\Billiard_Management\Billiard_Management
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Home/DangNhap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYW5nTmhhcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiBan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpQmFuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiBan/SuaBan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpQmFuXFN1YUJhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiBan/ThemBan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpQmFuXFRoZW1CYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiBan/TimKiemBan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpQmFuXFRpbUtpZW1CYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiBan/XemChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpQmFuXFhlbUNoaVRpZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiHoaDon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpSG9hRG9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiHoaDon/SuaHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpSG9hRG9uXFN1YUhvYURvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiHoaDon/ThemHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpSG9hRG9uXFRoZW1Ib2FEb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiHoaDon/TimKiemHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpSG9hRG9uXFRpbUtpZW1Ib2FEb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiHoaDon/XemHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpSG9hRG9uXFhlbUhvYURvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiLoaiBan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpTG9haUJhblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiLoaiBan/SuaLoaiBan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpTG9haUJhblxTdWFMb2FpQmFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiLoaiBan/ThemLoaiBan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpTG9haUJhblxUaGVtTG9haUJhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiTaiKhoan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGFpS2hvYW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiTaiKhoan/SuaTaiKhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGFpS2hvYW5cU3VhVGFpS2hvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiTaiKhoan/ThemTaiKhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGFpS2hvYW5cVGhlbVRhaUtob2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThanhVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGhhbmhWaWVuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThanhVien/SuaThanhVien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGhhbmhWaWVuXFN1YVRoYW5oVmllbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThanhVien/ThemThanhVien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGhhbmhWaWVuXFRoZW1UaGFuaFZpZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThanhVien/TimKiemThanhVien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGhhbmhWaWVuXFRpbUtpZW1UaGFuaFZpZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThucDon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGh1Y0RvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThucDon/SuaThucDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGh1Y0RvblxTdWFUaHVjRG9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThucDon/ThemThucDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGh1Y0RvblxUaGVtVGh1Y0Rvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/QuanLiThucDon/TimKiemThucDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkxpVGh1Y0RvblxUaW1LaWVtVGh1Y0Rvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/ThongKe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/ThongKe/ThongKeBanKhachChoi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlQmFuS2hhY2hDaG9pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/ThongKe/ThongKeDoanhThu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlRG9hbmhUaHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FPT/Documents/HocKy6/ThucHanhOracle/Billiard_Management/Billiard_Management/Billiard_Management/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-2lvhuxoj4o

@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Billiard_Management.Models.Ban>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="TimKiemBan" asp-controller="QuanLiBan" method="get" class="max-w-md mx-auto" style="padding-bottom: 30px;">
+    <div class="wrap">
+        <div class="search">
+            <input type="text" name="searchString" class="searchTerm" placeholder="">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+<p>
+    <a asp-action="ThemBan" asp-controller="QuanLiBan" class="btn btn-success"> + Thêm bàn mới</a>
+</p>
+
+
+<div class="container">
+    <!-- Danh sách các bàn bida -->
+    @foreach (var item in Model)
+    {
+        bool isDisabled = item.Trangthai == 2 || item.Trangthai == 3;
+
+        <div class="table-card" style="@(item.Trangthai == 2 ? "background-color: lightgreen;" : (item.Trangthai == 0 ? "background-color: lightgray;" : ""))">
+            <img class="table-image" src="~/assets/img/@item.Hinhanh" alt="@item.Tenban">
+            <div class="table-info">
+                <div class="table-name">
+                    @item.Tenban
+                    <span style="float:right;font-size:12pt;">@item.TrangthaiNavigation.Tentrangthai</span>
+                </div>
+
+                <!-- Các thông tin khác về bàn bida có thể thêm vào đây -->
+                <div>
+                    <a asp-action="XemChiTiet" asp-controller="QuanLiBan" asp-route-id="@item.Maban" class="btn btn-warning"><i class="fa fa-info-circle"></i></a>
+                    @if (isDisabled)
+                    {
+                        <a class="btn btn-info disabled"><i class="fa fa-edit"></i></a>
+                    }
+                    else
+                    {
+                        <a asp-action="SuaBan" asp-route-id="@item.Maban" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                    }
+
+
+                    @*  <a asp-action="XoaBan" asp-controller="QuanLiBan" asp-route-id="@item.Maban" class="btn btn-danger"><i class="fa fa-trash-o"></i></a> *@
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+ <style>
+    /* Thiết lập CSS cho layout */
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .table-card {
+        width: calc(25% - 20px); /* 25% width cho mỗi card, trừ đi margin */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .table-image {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .table-info {
+        padding: 20px;
+    }
+
+    .table-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    .searchTerm {
+        width: 100%;
+        border: 3px solid #00B4CC;
+        border-right: none;
+        padding: 5px;
+        height: 36px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9DBFAF;
+    }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap {
+        width: 30%;
+        position: absolute;
+    }
+</style>
+

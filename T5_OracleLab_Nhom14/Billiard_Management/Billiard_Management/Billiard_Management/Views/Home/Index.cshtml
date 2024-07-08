@@ -1,0 +1,211 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <a asp-action="ThongKeDoanhThu" asp-controller="ThongKe">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZJLPdAXiqihVTBjStKISmDLSKU7hVavxXyg&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">@String.Format("{0:#,##0}", @ViewBag.ThongKeDoanhThu) VNĐ</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiLoaiBan">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Vn0qEID9RnTt6MFAfARpHPgp5-rQIA1OLw&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Số loại bàn: @ViewBag.ThongKeLoaiBan</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiBan">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtewG7432RNBfcZIEniUMuL463bWL9uatv7A&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Tổng số bàn: @ViewBag.ThongKeSoBan</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="ThongKeBanKhachChoi" asp-controller="ThongKe">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB0s5BjjfxT2VwMmzpIQoSlZNucdnDIxd_A&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Lượt khách chơi: @ViewBag.ThongKeBanChoi</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiThanhVien">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKLjWDhrkOQgeMiWiRFZEBootaSmyWCWNuqw&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Tổng số thành viên: @ViewBag.ThongKeThanhVien</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiThucDon">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6xETmD993L7e611V1UOcwCDDaIRlpbpVbwQ&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Món trong MENU: @ViewBag.ThongKeThucDon</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiHoaDon">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtZ9VLlQgZU4P_YEEGRqJqWKdQhdEYfzsZnQ&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Tổng đơn hàng: @ViewBag.ThongKeHoaDon</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="QuanLiTaiKhoan">
+                <div class="col-lg-3 col-md-12 col-6 mb-4" style="padding-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ68XrlXfA2KdXnyBhiPtnqOP214OjiQteKmg&s" width="200px" height="200px" />
+                                </div>
+
+                            </div>
+                            <h3 class="card-title mb-2">Tổng tài khoản: @ViewBag.ThongKeTaiKhoan</h3>
+
+
+                            @* <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> *@
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .card {
+        background-clip: padding-box;
+        box-shadow: 0 2px 6px 0 rgba(67, 89, 113, .12);
+
+    }
+
+    .card {
+        --bs-card-spacer-y: 1.5rem;
+        --bs-card-spacer-x: 1.5rem;
+        --bs-card-title-spacer-y: 0.875rem;
+        --bs-card-title-color: #566a7f;
+        --bs-card-subtitle-color:;
+        --bs-card-border-width: 0;
+        --bs-card-border-color: #d9dee3;
+        --bs-card-border-radius: 0.5rem;
+        --bs-card-box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12);
+        --bs-card-inner-border-radius: 0.5rem;
+        --bs-card-cap-padding-y: 1.5rem;
+        --bs-card-cap-padding-x: 1.5rem;
+        --bs-card-cap-bg: transparent;
+        --bs-card-cap-color:;
+        --bs-card-height:;
+        --bs-card-color:;
+        --bs-card-bg: #fff;
+        --bs-card-img-overlay-padding: 1.5rem;
+        --bs-card-group-margin: 0.8125rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        height: var(--bs-card-height);
+        color: var(--bs-body-color);
+        word-wrap: break-word;
+        background-color: var(--bs-card-bg);
+        background-clip: border-box;
+        border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+        border-radius: var(--bs-card-border-radius);
+       
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+        color: var(--bs-card-color);
+
+    }
+
+
+
+    .card-title:not(h1):not(.h1):not(h2):not(.h2):not(h3):not(.h3):not(h4):not(.h4):not(h5):not(.h5):not(h6):not(.h6) {
+        color: #697a8d;
+    }
+</style>

@@ -1,0 +1,98 @@
+﻿@model Billiard_Management.Models.ViewModel.ChiTietBanVM
+
+@{
+    ViewData["Title"] = "XemChiTiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Chi Tiết Bàn</h2>
+
+<div>
+    <h4>Bàn: @Model.Ban.Tenban</h4>
+   @*  <p>Loại Bàn: @Model.Ban.LoaibanNavigation.TenLoai</p> *@
+
+    <p>Giá: @Model.Ban.Gia</p>
+    <img src="~/assets/img/@Model.Ban.Hinhanh" alt="Hình Ảnh Bàn" width="200" />
+</div>
+
+@if (Model.Ban.Trangthai == 1)
+{
+    <div>
+        <h3>Thêm Hóa Đơn</h3>
+        <a asp-action="ThemHoaDon" asp-controller="QuanLiHoaDon" asp-route-maban="@Model.Ban.Maban" class="btn btn-primary">Tạo hóa đơn</a>
+    </div>
+}
+else if (Model.HoadonChuaThanhToan != null)
+{
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Maban)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Giobatdau)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Khachhang)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Tongtien)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Ghichu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoadonChuaThanhToan.Trangthaithanhtoan)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => modelItem.HoadonChuaThanhToan.Mahoadon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.Maban)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.Giobatdau)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.KhachhangNavigation.Ten)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.Tongtien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.Ghichu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.HoadonChuaThanhToan.Trangthaithanhtoan)
+                    </td>
+
+                    <td>
+                        <a asp-action="SuaHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@Model.HoadonChuaThanhToan.Mahoadon" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                        <a asp-action="XemHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@Model.HoadonChuaThanhToan.Mahoadon" class="btn btn-warning"><i class="fa fa-info-circle"></i></a>
+                        @* <a asp-action="XoaHoaDon" asp-controller="QuanLiHoaDon" asp-route-id="@Model.HoadonChuaThanhToan.Mahoadon" class="btn btn-danger"><i class="fa fa-trash-o"></i></a> *@
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+}
+else
+{
+    <div>
+        <p>Không có hóa đơn chưa thanh toán cho bàn này.</p>
+    </div>
+}
